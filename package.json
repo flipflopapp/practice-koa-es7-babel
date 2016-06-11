@@ -1,0 +1,19 @@
+{
+  "name": "interview-question-1",
+  "version": "1.0.0",
+  "description": "Solution to an interview challenge",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navalsaini/interview-question-1.git"
+  },
+  "author": "Naval Saini <navalnovel@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/navalsaini/interview-question-1/issues"
+  },
+  "homepage": "https://github.com/navalsaini/interview-question-1#readme"
+}
