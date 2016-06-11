@@ -2,8 +2,8 @@
   "name": "interview-question-1",
   "version": "1.0.0",
   "description": "Solution to an interview challenge",
-  "main": "app.js",
   "scripts": {
+    "start": "./build.sh && node dist/app.js 8080",
     "test": "test"
   },
   "repository": {
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/navalsaini/interview-question-1/issues"
   },
-  "homepage": "https://github.com/navalsaini/interview-question-1#readme"
+  "homepage": "https://github.com/navalsaini/interview-question-1#readme",
+  "dependencies": {
+    "babel-polyfill": "^6.9.1"
+  }
 }
