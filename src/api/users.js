@@ -1,7 +1,7 @@
 import * as usersModule from "../domain/users";
 
 export async function getTopActiveUsers(ctx) {
-  const page = (this.request.body.page) ? this.request.body.page : 0;
+  const page = (this.params.page) ? this.params.page : 0;
   
   const { users, error, code } = await usersModule.getTopActiveUsers(page);
   
@@ -12,7 +12,7 @@ export async function getTopActiveUsers(ctx) {
 
 
 export async function getUserDetails(ctx) {
-  const id = this.request.body.id;
+  const id = this.params.id;
 
   if (!id) {
     this.response.status = 400;

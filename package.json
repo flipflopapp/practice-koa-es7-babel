@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Solution to an interview challenge",
   "scripts": {
-    "start": "./build.sh && node dist/app.js 8080",
+    "start": "./build.sh && node dist/app.js 8000",
     "test": "test"
   },
   "repository": {
