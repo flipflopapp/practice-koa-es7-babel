@@ -28,6 +28,7 @@
     "babel-preset-es2015-without-regenerator": "^1.0.1",
     "babel-preset-stage-2": "^6.5.0",
     "dateformat": "^1.0.12",
+    "http-errors": "^1.5.0",
     "koa": "^2.0.0-alpha.3",
     "koa-route": "^3.1.0",
     "nodefunc-promisify": "^2.0.0",

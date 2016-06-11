@@ -1,3 +1,5 @@
+import createError from "http-errors";
+
 import __topActiveUsers from "../temp/top-active-users";
 import __userDetails from "../temp/user-details";
 
@@ -10,7 +12,7 @@ export async function getUserDetails(id) {
 
   if (!user) {
     // bad request
-    return { message: "user not found", code: 400 };
+    throw createError.NotFound();
   }
 
   return { user: __userDetails[id], code: 200 };
