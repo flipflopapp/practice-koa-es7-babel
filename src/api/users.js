@@ -15,7 +15,7 @@ export async function getTopActiveUsers(ctx) {
 
 
 export async function getUserDetails(ctx) {
-  const id = this.params.id;
+  const id = this.request.query.id;
 
   if (!id) {
     ctx.body = { message: "id parameter is required in getUserDetails api" };
