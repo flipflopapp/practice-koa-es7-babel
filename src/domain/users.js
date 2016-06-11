@@ -2,7 +2,7 @@ import __topActiveUsers from "../temp/top-active-users";
 import __userDetails from "../temp/user-details";
 
 export async function getTopActiveUsers(page) {
-  return { users: __topActiveUsers };
+  return { users: __topActiveUsers, code: 200 };
 }
 
 export async function getUserDetails(id) {
@@ -10,8 +10,8 @@ export async function getUserDetails(id) {
 
   if (!user) {
     // bad request
-    return { error: "user not found", code: 400 };
+    return { message: "user not found", code: 400 };
   }
 
-  return { user: __userDetails[id] };
+  return { user: __userDetails[id], code: 200 };
 }
