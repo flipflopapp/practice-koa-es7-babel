@@ -49,8 +49,6 @@ export async function getUserDetails(id) {
     const { rows: createdListings } = await db.query(client, sql.UserCreatedListings, id);
     const { rows: applications } = await db.query(client, sql.UserApplications, id);
 
-    console.log(applications);
-
     return Object.assign(user, {
       companies,
       createdListings,
@@ -62,7 +60,8 @@ export async function getUserDetails(id) {
             id: a.listing_id,
             name: a.listing_name,
             description: a.listing_description
-          }
+          },
+          coverLetter: a.coverLetter
         }
       })
     });

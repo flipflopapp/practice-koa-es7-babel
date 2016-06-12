@@ -47,7 +47,8 @@ WHERE created_by=$1;
 `;
 
 export const UserApplications = `
-SELECT app.id AS "id", app.created_at AS "createdAt", listing_id, listing.name AS "listing_name", listing.description AS "listing_description"
+SELECT app.id AS "id", app.created_at AS "createdAt", cover_letter AS "coverLetter",
+       listing_id, listing.name AS "listing_name", listing.description AS "listing_description"
 FROM applications AS app
 INNER JOIN listings AS listing
 ON app.listing_id=listing.id

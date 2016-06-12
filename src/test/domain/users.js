@@ -30,9 +30,20 @@ describe("top active users", () => {
     should.exist(result.companies[0].id);
     should.exist(result.companies[0].createdAt);
     should.exist(result.companies[0].name);
-    should.exist(result.companies[0].isContact);
+    should.exist(result.companies[0].isContract);
     should.exist(result.createdListings);
+    should.exist(result.createdListings[0].id);
+    should.exist(result.createdListings[0].createdAt);
+    should.exist(result.createdListings[0].name);
+    should.exist(result.createdListings[0].description);
     should.exist(result.applications);
+    should.exist(result.applications[0].id);
+    should.exist(result.applications[0].createdAt);
+    should.exist(result.applications[0].coverLetter);
+    should.exist(result.applications[0].listing);
+    should.exist(result.applications[0].listing.id);
+    should.exist(result.applications[0].listing.name);
+    should.exist(result.applications[0].listing.description);
   });
 
 });
