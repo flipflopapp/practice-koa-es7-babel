@@ -1,0 +1,50 @@
+
+div {
+  padding: 10px;
+  margin: 0px;
+}
+
+.A {
+  float: left;
+  min-width: 47%;
+}
+
+.A-inner {
+  background-color: green;
+  float: right;
+}
+
+.B {
+  float: right;
+  min-width: 47%;
+}
+
+.B-inner {
+  background-color: lightblue;
+  float: left;
+}
+
+.C {
+  background-color: darkblue;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+}
+
+.D {
+  background-color: darkgreen;
+
+  display: inline-block;
+  float: left;
+  width: 50%;
+  max-height: 40px;
+}
+
+/*
+@media only screen and (max-width: 450px) {
+}
+
+@media only screen and (max-width: 840px) {
+}
+*/
