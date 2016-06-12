@@ -4,6 +4,11 @@ div {
   margin: 0px;
 }
 
+.label {
+  display: block;
+  width: 100%;
+}
+
 .A {
   float: left;
   min-width: 47%;
@@ -12,6 +17,7 @@ div {
 .A-inner {
   background-color: green;
   float: right;
+  min-width: 200px; /* TODO move to media query */
 }
 
 .B {
@@ -34,11 +40,10 @@ div {
 
 .D {
   background-color: darkgreen;
-
   display: inline-block;
   float: left;
-  width: 50%;
   max-height: 40px;
+  margin: 5px;
 }
 
 /*
