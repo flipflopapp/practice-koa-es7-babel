@@ -11,8 +11,8 @@ ORDER BY "applicationCount"`;
 // User info
 
 export const UserInfo = `
-SELECT id, created_at AS "createdAt", name, COUNT(c)
-FROM users u
+SELECT id, created_at AS "createdAt", name
+FROM users
 WHERE id=$1`;
 
 // Top listings of a user

@@ -20,6 +20,6 @@ export async function query(client, sql, ...params) {
   return await pgQuery(client, sql, params || []);
 }
 
-export async function queryWithTimeout(client, timeout, sql, ...params) {
+export async function cachedQuery(client, timeout, sql, ...params) {
   return await pgQuery(client, sql, params || []);
 }

@@ -14,17 +14,17 @@ export async function getTopActiveUsers(page) {
 
   try {
     // top active users
-    const { rows: topUsers } = await db.query(client, sql.TopUsersList);
+    const { rows: topUsers } = await db.cachedQuery(client, Timeout, sql.TopUsersList);
     const topUsersInPage = topUsers.slice(page * PageSize, (page+1) * PageSize);
 
     let result = [];
     for(let user of topUsersInPage) {
       let { rows: details } = await db.query(client, sql.UserInfo, user.id);
       let { rows: listings } = await db.query(client, sql.RecentUserListings, user.id);
-      result.push( Object.assign(details, 
+      result.push( Object.assign(details[0], 
                       { 
                         count: user.applicationCount, 
-                        listings: listings || [] 
+                        listings: (listings && listings.map(l => l.name)) || []
                       } ));
     }
 
