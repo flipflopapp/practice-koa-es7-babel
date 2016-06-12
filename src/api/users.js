@@ -10,7 +10,7 @@ export async function getTopActiveUsers(ctx) {
  
   try { 
     const users = await usersModule.getTopActiveUsers(page);
-    ctx.body = { users };
+    ctx.body = users;
   } catch(err) {
     ctx.body = { message: err.message };
     ctx.status = err.status || 500;
@@ -29,7 +29,7 @@ export async function getUserDetails(ctx) {
   
   try {
     const user = await usersModule.getUserDetails(id);
-    ctx.body = { user };
+    ctx.body = user;
   } catch(err) {
     ctx.body = { message: err.message };
     ctx.status = err.status || 500;
