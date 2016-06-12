@@ -15,18 +15,24 @@ describe("test db", () => {
     await _db.close();
   });
 
-  it("test db", async () => {
-    const query = `SELECT * FROM users`;
-    const { rows: result } = await db.query(_db.client, query);
-    should.exist(result);
-    result.length.should.be.above(0);
-  });
-
-  it("test db for top users list query", async () => {
+  it("test top users list query", async () => {
     const query = sql.TopUsersList;
     const { rows: result } = await db.query(_db.client, query);
     should.exist(result);
     result.length.should.be.above(0);
   });
+  
+  it("test multiple queries", async () => {
+    const query = `SELECT * FROM users`;
+    
+    const { rows: result } = await db.query(_db.client, query);
+    should.exist(result);
+    result.length.should.be.above(0);
+    
+    const { rows: result1 } = await db.query(_db.client, query);
+    should.exist(result1);
+    result1.length.should.equal(result.length);
+  });
+
 
 });
