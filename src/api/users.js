@@ -2,6 +2,11 @@ import * as usersModule from "../domain/users";
 
 export async function getTopActiveUsers(ctx) {
   const page = (this.request.query.page) ? this.request.query.page : 0;
+
+  if (page < 0) {
+    ctx.body = { message: "page cannot be negative" };
+    ctx.status = err.status || 400;
+  }
  
   try { 
     const users = await usersModule.getTopActiveUsers(page);

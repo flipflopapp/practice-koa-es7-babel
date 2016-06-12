@@ -1,10 +1,38 @@
 import createError from "http-errors";
+import * as db from "../store/db";
+import * as sql from "../store/sql";
 
-import __topActiveUsers from "../temp/top-active-users";
 import __userDetails from "../temp/user-details";
 
+// this should be cacehed in redis
+
 export async function getTopActiveUsers(page) {
-  return { users: __topActiveUsers, code: 200 };
+  const Timeout = 10 * 60; // 10 mins
+  const PageSize = 10;
+
+  const { client, close } = await db.client();
+
+  try {
+    // top active users
+    const { rows: topUsers } = await db.query(client, sql.TopUsersList);
+    const topUsersInPage = topUsers.slice(page * PageSize, (page+1) * PageSize);
+
+    let result = [];
+    for(let user of topUsersInPage) {
+      let { rows: details } = await db.query(client, sql.UserInfo, user.id);
+      let { rows: listings } = await db.query(client, sql.RecentUserListings, user.id);
+      result.push( Object.assign(details, 
+                      { 
+                        count: user.applicationCount, 
+                        listings: listings || [] 
+                      } ));
+    }
+
+    return result;
+
+  } finally {
+    close(); // close db
+  }
 }
 
 export async function getUserDetails(id) {
