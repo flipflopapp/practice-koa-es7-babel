@@ -2,8 +2,6 @@ import createError from "http-errors";
 import * as db from "../store/db";
 import * as sql from "../store/sql";
 
-import __userDetails from "../temp/user-details";
-
 // this should be cacehed in redis
 
 export async function getTopActiveUsers(page) {
@@ -31,17 +29,46 @@ export async function getTopActiveUsers(page) {
     return result;
 
   } finally {
-    close(); // close db
+    close(); // close db connection
   }
 }
 
 export async function getUserDetails(id) {
-  const user = __userDetails[id];
+  const { client, close } = await db.client();
 
-  if (!user) {
-    // bad request
-    throw createError.NotFound();
+  try {
+    const { rows: user } = await db.query(client, sql.UserInfo, id);
+    user = user.shift(); // find one
+
+    if (!user) {
+      // bad request
+      throw createError.NotFound();
+    }
+
+    const { rows: companies } = await db.query(client, sql.UserCompanies, id);
+    const { rows: createdListings } = await db.query(client, sql.UserCreatedListings, id);
+    const { rows: applications } = await db.query(client, sql.UserApplications, id);
+
+    console.log(applications);
+
+    return Object.assign(user, {
+      companies,
+      createdListings,
+      applications: applications.map(a => {
+        return {
+          id: a.id,
+          createdAt: a.createdAt,
+          listing: {
+            id: a.listing_id,
+            name: a.listing_name,
+            description: a.listing_description
+          }
+        }
+      })
+    });
+
+  } finally {
+    close(); // close db connection
   }
 
-  return { user: __userDetails[id], code: 200 };
 }
