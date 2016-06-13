@@ -4,9 +4,9 @@
   "description": "Solution to an interview challenge",
   "scripts": {
     "start": "./build.sh && node dist/app.js 8000",
-    "test-domain": "./build.sh && mocha --require source-map-support/register dist/test/domain",
-    "test-db": "./build.sh && mocha --require source-map-support/register dist/test/db",
-    "test-api": "./build.sh && mocha --require source-map-support/register dist/test/api"
+    "test-domain": "./build.sh && mocha --require source-map-support/register -t 3000 dist/test/domain",
+    "test-db": "./build.sh && mocha --require source-map-support/register -t 3000 dist/test/db",
+    "test-api": "./build.sh && mocha --require source-map-support/register -t 3000 dist/test/api"
   },
   "repository": {
     "type": "git",
