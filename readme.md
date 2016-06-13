@@ -29,11 +29,12 @@ The project has following dependencies :-
 ./database/setup-db.sh 
 ```
 
-You can also configure with a remote database using environment varialbe
+You can also configure with a remote database using environment variable
 DB_URL. Ex,
 
 ```
 export DB_URL=postgres://user:password@/host/database
+```
 
 ## Run testcases
 
