@@ -29,6 +29,12 @@ The project has following dependencies :-
 ./database/setup-db.sh 
 ```
 
+You can also configure with a remote database using environment varialbe
+DB_URL. Ex,
+
+```
+export DB_URL=postgres://user:password@/host/database
+
 ## Run testcases
 
 * npm run test-db
