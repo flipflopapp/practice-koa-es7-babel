@@ -17,7 +17,7 @@ first time I am building something with babel and async/await.
 The project has following dependencies :-
 
 * node version 4 or above
-* psql versipn 9 or above
+* postgres versipn 9 or above
 * npm version 3 or above
 * babel-cli, etc
 
@@ -29,7 +29,7 @@ The project has following dependencies :-
 ./database/setup-db.sh 
 ```
 
-You can also configure with a remote database using environment variable
+You can also configure the server to use a remote postgres database using environment variable
 DB_URL. Ex,
 
 ```
