@@ -6,7 +6,7 @@ ability. For a production application, I would add more testcases and
 return better error values.
 
 The time taken to complete this project was about 8 hours. It is the
-first time I am building something with babel and async/await.
+first time I am building something from scratch with babel and async/await.
 
 
 # Setup
