@@ -17,9 +17,9 @@ export async function client() {
 }
 
 export async function query(client, sql, ...params) {
-  return await pgQuery(client, sql, params || []);
+  return pgQuery(client, sql, params || []);
 }
 
 export async function cachedQuery(client, timeout, sql, ...params) {
-  return await pgQuery(client, sql, params || []);
+  return pgQuery(client, sql, params || []);
 }
