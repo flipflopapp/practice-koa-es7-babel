@@ -16,10 +16,10 @@ export async function client() {
   }
 }
 
-export async function query(client, sql, ...params) {
+export function query(client, sql, ...params) {
   return pgQuery(client, sql, params || []);
 }
 
-export async function cachedQuery(client, timeout, sql, ...params) {
+export function cachedQuery(client, timeout, sql, ...params) {
   return pgQuery(client, sql, params || []);
 }
